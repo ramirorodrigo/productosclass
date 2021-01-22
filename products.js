@@ -18,7 +18,7 @@ class Product {
     return this.quatity;
   }
 }
-export default  class ProductManagement {
+export default class ProductManagement {
   constructor() {
     this.listproducts = new Array();
   }
@@ -49,4 +49,4 @@ export default  class ProductManagement {
     return this.listproducts;
   }
 }
-export {Product}
+export {Product/*, ProductManagement*/}

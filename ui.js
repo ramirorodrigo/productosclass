@@ -23,9 +23,9 @@ class UI {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">descrip.</th>
+            <th scope="col">cantidad</th>
           </tr>
         </thead>
         <tbody>
@@ -33,16 +33,18 @@ class UI {
         for (var i = 0; i < this.lisproducts.length; i++) {
             this.html += `<tr>
             <th scope="row">${i}</th>
-            <td>${this.lisproducts[i].getName()}</td>
-            <td>${this.lisproducts[i].getDescription()}</td>
-            <td>${this.lisproducts[i].getQuantity()}</td>
+            <td><input type="text" name="número" value ="${this.lisproducts[i].getName()}" placeholder="nombre de producto"></td>
+            <td><input type="text" name="número" value ="${this.lisproducts[i].getDescription()}" placeholder="nombre de producto"></td>
+            <td><input type="text" name="número" value ="${this.lisproducts[i].getQuantity()}" placeholder="nombre de producto"></td>
             <td><button type="button" class="btn btn-danger" ids="${i}">Borrar</button></td>
+            <td><button type="button" onclick="modificando()">Actualizar</button></td>
           </tr>`;
 
         }
         this.html += `
         </tbody>
               </table>
+
         `;
         this.container.innerHTML = this.html;
         var buttons = document.querySelectorAll("button");
@@ -54,6 +56,11 @@ class UI {
             });
         }
     }
+  /*  modificando(){
+      this.html = `<table class="table">
+
+            `;
+    }*/
     loadEvents() {
         this.form.addEventListener("submit", (e) => {
             e.preventDefault();
