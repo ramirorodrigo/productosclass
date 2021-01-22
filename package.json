@@ -1,0 +1,23 @@
+{
+  "name": "products",
+  "version": "1.0.0",
+  "description": "productos list",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Ditmar/products.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Ditmar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ditmar/products/issues"
+  },
+  "homepage": "https://github.com/Ditmar/products#readme"
+}
