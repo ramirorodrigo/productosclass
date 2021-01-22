@@ -1,8 +1,10 @@
 //aqui se programara la ui
 import Product from "./products.js";
 import ProductManagement from "./products.js";
+
 class UI {
     constructor() {
+
         this.form = document.getElementById("form");
         this.container = document.getElementById("containertable");
         console.log("LOAD");
@@ -35,9 +37,9 @@ class UI {
             <th scope="row">${i}</th>
             <td><input type="text" name="número" value ="${this.lisproducts[i].getName()}" placeholder="nombre de producto"></td>
             <td><input type="text" name="número" value ="${this.lisproducts[i].getDescription()}" placeholder="nombre de producto"></td>
-            <td><input type="text" name="número" value ="${this.lisproducts[i].getQuantity()}" placeholder="nombre de producto"></td>
+            <td><input type="number" name="número" value ="${this.lisproducts[i].getQuantity()}" placeholder="nombre de producto"></td>
             <td><button type="button" class="btn btn-danger" ids="${i}">Borrar</button></td>
-            <td><button type="button" onclick="modificando()">Actualizar</button></td>
+            <td><button type="submit" onclick="modificando()">Actualizar</button></td>
           </tr>`;
 
         }
@@ -49,18 +51,21 @@ class UI {
         this.container.innerHTML = this.html;
         var buttons = document.querySelectorAll("button");
         for (var i = 0; i < buttons.length; i++){
+          if (i%2 == 0) {
             buttons[i].addEventListener("click", (e) => {
                 var product = this.lisproducts[Number(e.target.getAttribute("ids"))];
                 this.productmanagement.removeProducts(product);
                 this.loadTable();
             });
+          }
+
         }
     }
-  /*  modificando(){
-      this.html = `<table class="table">
-
-            `;
-    }*/
+  modificando(name, description, quantity) {
+    var date = new Date();
+    var product = new Product(date, name, description, quantity);
+    this.listproducts.push(product);
+  }
     loadEvents() {
         this.form.addEventListener("submit", (e) => {
             e.preventDefault();
